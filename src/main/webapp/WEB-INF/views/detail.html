@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="java">
+<html lang="en">
+<head th:replace="layout ::css">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 id="title">Product Manager</h1>
+<p><a href="/">Back</a></p>
+<table border="1">
+    <tr>
+        <th>STT</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th>Manufacture</th>
+        <th colspan="2">Action</th>
+    </tr>
+    <tr th:object="${product}">
+        <td th:text="*{id}"></td>
+        <td th:text="*{productName}"></td>
+        <td th:text="*{price}"></td>
+        <td th:text="*{description}"></td>
+        <td th:text="*{manufacture}"></td>
+        <td><a th:href="@{/product/edit/{id}(id=*{id})}">Edit</a></td>
+        <td><a th:href="@{/product/delete/{id}(id=*{id})}">Delete</a></td>
+    </tr>
+</table>
+</body>
+</html>
